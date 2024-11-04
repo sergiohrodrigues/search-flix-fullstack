@@ -1,0 +1,302 @@
+[
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "BuscarAtorPorFilme",
+    "RelativePath": "api/Ator/BuscarAtorPorFilme",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filme",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "BuscarAtorPorId",
+    "RelativePath": "api/Ator/BuscarAtorPorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtor",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "CriarAtor",
+    "RelativePath": "api/Ator/CriarAtor",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "atorCriacaoDto",
+        "Type": "Filmes.Dto.Ator.AtorCriacaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "EditarAtor",
+    "RelativePath": "api/Ator/EditarAtor",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "atorEdicaoDto",
+        "Type": "Filmes.Dto.Ator.AtorEdicaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "ExcluirAtor",
+    "RelativePath": "api/Ator/ExcluirAtor",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idAtor",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.AtorController",
+    "Method": "ListarAtores",
+    "RelativePath": "api/Ator/ListarAtores",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "BuscarFilmePorAtor",
+    "RelativePath": "api/Filme/BuscarFilmePorAtor",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "nomeFilme",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "BuscarFilmePorId",
+    "RelativePath": "api/Filme/BuscarFilmePorId",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idFilme",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "CriarFilme",
+    "RelativePath": "api/Filme/CriarFilme",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filmeCriacaoDto",
+        "Type": "Filmes.Dto.Filme.FilmeCriacaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "EditarFilme",
+    "RelativePath": "api/Filme/EditarFilme",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "filmeEditarDto",
+        "Type": "Filmes.Dto.Filme.FilmeEditarDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "ExcluirFilme",
+    "RelativePath": "api/Filme/ExcluirFilme",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idFilme",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.FilmeController",
+    "Method": "listarFilmes",
+    "RelativePath": "api/Filme/listarFilmes",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]
