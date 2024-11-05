@@ -1,10 +1,14 @@
 <template>
   <section>
     <h2 class="text-2xl text-center mt-2">Todos os Filmes</h2>
-    <div class="flex flex-wrap gap-2 mt-4 p-3">
+    <div class="flex flex-wrap gap-2 mt-4 p-3 md:justify-center">
       <Card v-for="film in filmes" :key="film.id" class="hover:cursor-pointer">
-        <CardContent>
-          <span class="text-2xl font-semibold">{{ film.name }}</span>
+        <CardContent
+          class="w-[130px] h-[150px] p-0"
+          @click="router.push(`/movie/${film.titulo}`)"
+        >
+          <img src="" :alt="film.titulo" class="w-full h-full" />
+          <!-- <span class="text-2xl font-semibold">{{ film.titulo }}</span> -->
         </CardContent>
       </Card>
     </div>
@@ -15,46 +19,23 @@
 </template>
 
 <script setup lang="ts">
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import { Card, CardContent } from "../components/ui/card";
 import { computed } from "vue";
+import films from "../filmes.json";
 
 const route = useRoute();
-
-const films = [
-  {
-    id: 1,
-    name: "filme 1",
-  },
-  {
-    id: 2,
-    name: "filme 2",
-  },
-  {
-    id: 3,
-    name: "filme 3",
-  },
-  {
-    id: 4,
-    name: "filme 4",
-  },
-  {
-    id: 5,
-    name: "filme 5",
-  },
-];
+const router = useRouter();
 
 const filmes = computed(() => {
   if (route.params.search) {
     return films.filter((film) =>
-      film.name.toUpperCase().includes(route.params.search.toUpperCase())
+      film.titulo.toUpperCase().includes(route.params.search.toUpperCase())
     );
   } else {
     return films;
   }
 });
-console.log(filmes.value);
-console.log(route.params.search);
 </script>
 
 <style scoped>

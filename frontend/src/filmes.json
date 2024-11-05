@@ -1,0 +1,453 @@
+[
+    {
+      "id": 1,
+      "titulo": "Eternal Horizon",
+      "descricao": "Exploradores enfrentam uma jornada perigosa para colonizar um planeta desconhecido.",
+      "Atores": [
+        {
+          "id": 1,
+          "Nome": "John",
+          "Sobrenome": "Carter",
+          "DataNasc": "1985-07-21",
+          "Nacionalidade": "Americano"
+        },
+        {
+          "id": 2,
+          "Nome": "Emma",
+          "Sobrenome": "King",
+          "DataNasc": "1990-03-14",
+          "Nacionalidade": "Canadense"
+        },
+        {
+          "id": 3,
+          "Nome": "Liam",
+          "Sobrenome": "Sanders",
+          "DataNasc": "1988-11-30",
+          "Nacionalidade": "Britânico"
+        }
+      ],
+      "categoria": "Sci-Fi",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+      "id": 2,
+      "titulo": "The Last Stand",
+      "descricao": "Um grupo de sobreviventes tenta proteger a última cidade segura em um mundo apocalíptico.",
+      "Atores": [
+        {
+          "id": 4,
+          "Nome": "Sara",
+          "Sobrenome": "Johnson",
+          "DataNasc": "1984-08-25",
+          "Nacionalidade": "Americana"
+        },
+        {
+          "id": 5,
+          "Nome": "Michael",
+          "Sobrenome": "Green",
+          "DataNasc": "1979-05-10",
+          "Nacionalidade": "Britânico"
+        },
+        {
+          "id": 6,
+          "Nome": "Tom",
+          "Sobrenome": "Roberts",
+          "DataNasc": "1982-02-17",
+          "Nacionalidade": "Australiano"
+        }
+      ],
+      "categoria": "Ação",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+      "id": 3,
+      "titulo": "Whispers in the Dark",
+      "descricao": "Uma série de desaparecimentos misteriosos assombra uma cidade pequena.",
+      "Atores": [
+        {
+          "id": 7,
+          "Nome": "Alice",
+          "Sobrenome": "Porter",
+          "DataNasc": "1992-06-04",
+          "Nacionalidade": "Canadense"
+        },
+        {
+          "id": 8,
+          "Nome": "Victor",
+          "Sobrenome": "Brown",
+          "DataNasc": "1976-12-12",
+          "Nacionalidade": "Americano"
+        },
+        {
+          "id": 9,
+          "Nome": "Rachel",
+          "Sobrenome": "Lee",
+          "DataNasc": "1991-09-23",
+          "Nacionalidade": "Sul-coreana"
+        }
+      ],
+      "categoria": "Suspense",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+      "id": 4,
+      "titulo": "Virtual Minds",
+      "descricao": "Humanos e inteligências artificiais competem pelo controle de uma rede global.",
+      "Atores": [
+        {
+          "id": 10,
+          "Nome": "David",
+          "Sobrenome": "Lee",
+          "DataNasc": "1980-01-11",
+          "Nacionalidade": "Americano"
+        },
+        {
+          "id": 11,
+          "Nome": "Carla",
+          "Sobrenome": "Hughes",
+          "DataNasc": "1985-10-22",
+          "Nacionalidade": "Britânica"
+        },
+        {
+          "id": 12,
+          "Nome": "Robert",
+          "Sobrenome": "Young",
+          "DataNasc": "1983-04-02",
+          "Nacionalidade": "Canadense"
+        }
+      ],
+      "categoria": "Sci-Fi",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+      "id": 5,
+      "titulo": "Rise of the Titans",
+      "descricao": "Heróis mitológicos se unem para enfrentar uma ameaça divina.",
+      "Atores": [
+        {
+          "id": 13,
+          "Nome": "Luke",
+          "Sobrenome": "Adams",
+          "DataNasc": "1993-12-18",
+          "Nacionalidade": "Americano"
+        },
+        {
+          "id": 14,
+          "Nome": "Sophia",
+          "Sobrenome": "Clark",
+          "DataNasc": "1990-11-03",
+          "Nacionalidade": "Britânica"
+        },
+        {
+          "id": 15,
+          "Nome": "Henry",
+          "Sobrenome": "Evans",
+          "DataNasc": "1986-07-19",
+          "Nacionalidade": "Australiano"
+        }
+      ],
+      "categoria": "Fantasia",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+      "id": 6,
+      "titulo": "The Forgotten Expedition",
+      "descricao": "Arqueólogos descobrem segredos antigos em uma floresta isolada.",
+      "Atores": [
+        {
+          "id": 16,
+          "Nome": "Paula",
+          "Sobrenome": "Grant",
+          "DataNasc": "1987-09-27",
+          "Nacionalidade": "Canadense"
+        },
+        {
+          "id": 17,
+          "Nome": "Ian",
+          "Sobrenome": "Matthews",
+          "DataNasc": "1975-04-15",
+          "Nacionalidade": "Britânico"
+        },
+        {
+          "id": 18,
+          "Nome": "Linda",
+          "Sobrenome": "Scott",
+          "DataNasc": "1983-08-09",
+          "Nacionalidade": "Americana"
+        }
+      ],
+      "categoria": "Aventura",
+      "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+    },
+    {
+        "id": 7,
+        "titulo": "Echoes of War",
+        "descricao": "Soldados enfrentam os horrores da guerra e as consequências de suas ações.",
+        "Atores": [
+          {
+            "id": 19,
+            "Nome": "James",
+            "Sobrenome": "Brown",
+            "DataNasc": "1981-02-21",
+            "Nacionalidade": "Americano"
+          },
+          {
+            "id": 20,
+            "Nome": "Laura",
+            "Sobrenome": "King",
+            "DataNasc": "1990-11-05",
+            "Nacionalidade": "Canadense"
+          },
+          {
+            "id": 21,
+            "Nome": "Oscar",
+            "Sobrenome": "Thompson",
+            "DataNasc": "1985-03-17",
+            "Nacionalidade": "Britânico"
+          }
+        ],
+        "categoria": "Guerra",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 8,
+        "titulo": "Parallel Worlds",
+        "descricao": "Duas realidades paralelas começam a colidir, alterando o destino de seus habitantes.",
+        "Atores": [
+          {
+            "id": 22,
+            "Nome": "Elena",
+            "Sobrenome": "Foster",
+            "DataNasc": "1986-08-14",
+            "Nacionalidade": "Americana"
+          },
+          {
+            "id": 23,
+            "Nome": "Chris",
+            "Sobrenome": "Black",
+            "DataNasc": "1993-12-29",
+            "Nacionalidade": "Britânico"
+          },
+          {
+            "id": 24,
+            "Nome": "Angela",
+            "Sobrenome": "Moore",
+            "DataNasc": "1987-10-10",
+            "Nacionalidade": "Australiana"
+          }
+        ],
+        "categoria": "Sci-Fi",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 9,
+        "titulo": "Chasing Shadows",
+        "descricao": "Um detetive busca justiça em meio a uma série de crimes intrincados.",
+        "Atores": [
+          {
+            "id": 25,
+            "Nome": "Alex",
+            "Sobrenome": "Stone",
+            "DataNasc": "1982-06-17",
+            "Nacionalidade": "Americano"
+          },
+          {
+            "id": 26,
+            "Nome": "Olivia",
+            "Sobrenome": "Davis",
+            "DataNasc": "1989-09-22",
+            "Nacionalidade": "Britânica"
+          },
+          {
+            "id": 27,
+            "Nome": "Ryan",
+            "Sobrenome": "Wood",
+            "DataNasc": "1983-01-05",
+            "Nacionalidade": "Canadense"
+          }
+        ],
+        "categoria": "Crime",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 10,
+        "titulo": "Beyond the Stars",
+        "descricao": "Astronautas se aventuram em uma missão perigosa para além do sistema solar.",
+        "Atores": [
+          {
+            "id": 28,
+            "Nome": "Mark",
+            "Sobrenome": "Taylor",
+            "DataNasc": "1988-05-13",
+            "Nacionalidade": "Australiano"
+          },
+          {
+            "id": 29,
+            "Nome": "Emily",
+            "Sobrenome": "Collins",
+            "DataNasc": "1991-07-20",
+            "Nacionalidade": "Americana"
+          },
+          {
+            "id": 30,
+            "Nome": "Nathan",
+            "Sobrenome": "Ross",
+            "DataNasc": "1984-10-18",
+            "Nacionalidade": "Britânico"
+          }
+        ],
+        "categoria": "Sci-Fi",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 11,
+        "titulo": "Legacy of Heroes",
+        "descricao": "Um grupo de heróis improváveis se une para combater uma invasão alienígena.",
+        "Atores": [
+          {
+            "id": 31,
+            "Nome": "Lisa",
+            "Sobrenome": "Morgan",
+            "DataNasc": "1980-09-14",
+            "Nacionalidade": "Americana"
+          },
+          {
+            "id": 32,
+            "Nome": "Daniel",
+            "Sobrenome": "Turner",
+            "DataNasc": "1986-11-30",
+            "Nacionalidade": "Britânico"
+          },
+          {
+            "id": 33,
+            "Nome": "Sam",
+            "Sobrenome": "Ward",
+            "DataNasc": "1993-03-27",
+            "Nacionalidade": "Canadense"
+          }
+        ],
+        "categoria": "Ação",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 12,
+        "titulo": "Silent Echoes",
+        "descricao": "Uma investigadora desvenda os segredos de uma mansão assombrada.",
+        "Atores": [
+          {
+            "id": 34,
+            "Nome": "Catherine",
+            "Sobrenome": "Barnes",
+            "DataNasc": "1982-02-05",
+            "Nacionalidade": "Britânica"
+          },
+          {
+            "id": 35,
+            "Nome": "Ethan",
+            "Sobrenome": "Moore",
+            "DataNasc": "1987-06-24",
+            "Nacionalidade": "Americano"
+          },
+          {
+            "id": 36,
+            "Nome": "Grace",
+            "Sobrenome": "Young",
+            "DataNasc": "1990-09-09",
+            "Nacionalidade": "Canadense"
+          }
+        ],
+        "categoria": "Terror",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 13,
+        "titulo": "Guardians of Nature",
+        "descricao": "Ativistas tentam salvar uma floresta tropical de uma corporação poderosa.",
+        "Atores": [
+          {
+            "id": 37,
+            "Nome": "Oliver",
+            "Sobrenome": "Grant",
+            "DataNasc": "1979-08-07",
+            "Nacionalidade": "Canadense"
+          },
+          {
+            "id": 38,
+            "Nome": "Maria",
+            "Sobrenome": "White",
+            "DataNasc": "1985-12-14",
+            "Nacionalidade": "Britânica"
+          },
+          {
+            "id": 39,
+            "Nome": "Evan",
+            "Sobrenome": "Long",
+            "DataNasc": "1982-04-29",
+            "Nacionalidade": "Americano"
+          }
+        ],
+        "categoria": "Drama",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 14,
+        "titulo": "Unseen Forces",
+        "descricao": "Um cientista descobre energias invisíveis que podem alterar a realidade.",
+        "Atores": [
+          {
+            "id": 40,
+            "Nome": "Patrick",
+            "Sobrenome": "Stone",
+            "DataNasc": "1984-05-25",
+            "Nacionalidade": "Americano"
+          },
+          {
+            "id": 41,
+            "Nome": "Rebecca",
+            "Sobrenome": "Parker",
+            "DataNasc": "1990-12-02",
+            "Nacionalidade": "Britânica"
+          },
+          {
+            "id": 42,
+            "Nome": "Eric",
+            "Sobrenome": "Adams",
+            "DataNasc": "1981-11-17",
+            "Nacionalidade": "Canadense"
+          }
+        ],
+        "categoria": "Sci-Fi",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      },
+      {
+        "id": 15,
+        "titulo": "The Hidden Truth",
+        "descricao": "Uma jornalista investiga uma conspiração política e descobre segredos perigosos.",
+        "Atores": [
+          {
+            "id": 43,
+            "Nome": "Jessica",
+            "Sobrenome": "Reed",
+            "DataNasc": "1983-06-30",
+            "Nacionalidade": "Canadense"
+          },
+          {
+            "id": 44,
+            "Nome": "George",
+            "Sobrenome": "King",
+            "DataNasc": "1987-01-23",
+            "Nacionalidade": "Britânico"
+          },
+          {
+            "id": 45,
+            "Nome": "Molly",
+            "Sobrenome": "Sanders",
+            "DataNasc": "1992-04-15",
+            "Nacionalidade": "Americana"
+          }
+        ],
+        "categoria": "Suspense",
+        "trailler": "https://www.youtube.com/embed/U4lz8MN6MQA"
+      }
+  ]
+  

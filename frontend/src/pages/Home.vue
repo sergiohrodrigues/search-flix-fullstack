@@ -8,7 +8,7 @@
       />
     </section>
 
-    <section class="p-4 flex items-center gap-2">
+    <section class="p-4 flex items-center gap-2 md:justify-center">
       <div class="relative w-full max-w-sm items-center w-[200px]">
         <Input
           id="search"
@@ -36,16 +36,20 @@
       >
         <CarouselContent class="-ml-1">
           <CarouselItem
-            v-for="(_, index) in 5"
-            :key="index"
+            v-for="film in films"
+            :key="film.id"
             class="pl-1 lg:basis-1/3"
           >
             <div class="p-1">
-              <Card @click="$router.push(`/1`)" class="hover:cursor-pointer">
+              <Card
+                @click="$router.push(`movie/${film.titulo}`)"
+                class="hover:cursor-pointer"
+              >
                 <CardContent
                   class="flex aspect-square items-center justify-center p-6"
                 >
-                  <span class="text-2xl font-semibold">{{ index + 1 }}</span>
+                  <!-- <span class="text-2xl font-semibold">{{ film.titulo }}</span> -->
+                  <img src="" :alt="film.titulo" class="w-full" />
                 </CardContent>
               </Card>
             </div>
@@ -72,12 +76,13 @@ import { Search } from "lucide-vue-next";
 import Button from "../components/ui/button/Button.vue";
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import films from "../filmes.json";
 
 const searchFilm = ref("");
 const router = useRouter();
 
 const buscarFilme = () => {
-  router.push(`/filmes/${searchFilm.value}`);
+  router.push(`/movies/${searchFilm.value}`);
   searchFilm.value = "";
 };
 </script>
