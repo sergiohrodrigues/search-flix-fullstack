@@ -23,13 +23,12 @@
   </section>
   <section v-else class="text-center">
     <h2 class="text-2xl mt-2">Nenhum filme encontrado</h2>
-    <Button @click="router.push('/')" class="mt-4">Voltar ao início</Button>
+    <Button @click="router.back" class="mt-4">Voltar</Button>
   </section>
 </template>
 
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
-import films from "../filmes.json";
 import Badge from "../components/ui/badge/Badge.vue";
 import Button from "../components/ui/button/Button.vue";
 import { Heart, Star } from "lucide-vue-next";
@@ -41,7 +40,24 @@ const router = useRouter();
 
 const favorite = ref(false);
 
-const film = films.filter((film) => film.titulo === route.params.movie);
+const films = ref([]);
+
+onMounted(() => {
+  carregarDoSessionStorage();
+  fetch("https://localhost:7181/api/Filme/ListarFilmes")
+    .then((response) => response.json())
+    .then((data) => {
+      films.value = data.dados;
+    })
+    .catch((error) => {
+      films.value = [];
+      console.error("Erro ao buscar filmes:", error);
+    });
+});
+
+const film = films.value.filter((film) => film.titulo === route.params.movie);
+
+console.log(film)
 
 function adicionarAoSessionStorage(item: string): void {
   const arrayExistente = JSON.parse(
@@ -116,11 +132,4 @@ function adicionarItens(item: string): void {
     carregarDoSessionStorage();
   }
 }
-
-onMounted(() => {
-  carregarDoSessionStorage();
-});
 </script>
-
-<style scoped>
-</style>
