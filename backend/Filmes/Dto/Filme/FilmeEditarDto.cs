@@ -8,6 +8,8 @@ namespace Filmes.Dto.Filme
         public int Id { get; set; }
         public string Titulo { get; set; } = string.Empty;
         public string Descricao { get; set; } = string.Empty;
+        public string Categoria { get; set; } = string.Empty;
+        public string UrlTrailler { get; set; } = string.Empty;
         public AtorVinculoDto Ator { get; set; }
     }
 }

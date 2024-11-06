@@ -1,21 +1,22 @@
 <template>
-  <section>
-    <h2 class="text-2xl text-center mt-2">Todos os Filmes</h2>
+  <section v-if="filmes.length > 0">
     <div class="flex flex-wrap gap-2 mt-4 p-3 md:justify-center">
       <Card v-for="film in filmes" :key="film.id" class="hover:cursor-pointer">
         <CardContent
           class="w-[130px] h-[150px] p-0"
           @click="router.push(`/movie/${film.titulo}`)"
         >
-          <img src="" :alt="film.titulo" class="w-full h-full" />
+          <img
+            :src="`/images/film${film.id}.jpg`"
+            :alt="film.titulo"
+            class="w-full h-full"
+          />
           <!-- <span class="text-2xl font-semibold">{{ film.titulo }}</span> -->
         </CardContent>
       </Card>
     </div>
-    <h2 v-if="!filmes.length" class="text-2xl text-center">
-      Nenhum filme encontrado
-    </h2>
   </section>
+  <h2 class="text-2xl text-center mt-2" v-else>Nenhum filme encontrado</h2>
 </template>
 
 <script setup lang="ts">

@@ -12,7 +12,7 @@
       <p class="mt-2">{{ film[0].descricao }}</p>
     </div>
     <iframe
-      src="https://www.youtube.com/embed/U4lz8MN6MQA"
+      :src="film[0].urlTrailler"
       title="DOOM CROSSING: Eternal Horizons ■ Music Video feat. Natalia Natchan aka PiNKII"
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -32,7 +32,7 @@ import { useRoute, useRouter } from "vue-router";
 import Badge from "../components/ui/badge/Badge.vue";
 import Button from "../components/ui/button/Button.vue";
 import { Heart, Star } from "lucide-vue-next";
-import { onMounted, ref } from "vue";
+import { computed, onMounted, ref, watch } from "vue";
 import { toast } from "vue-sonner";
 
 const route = useRoute();
@@ -44,6 +44,7 @@ const films = ref([]);
 
 onMounted(() => {
   carregarDoSessionStorage();
+
   fetch("https://localhost:7181/api/Filme/ListarFilmes")
     .then((response) => response.json())
     .then((data) => {
@@ -55,9 +56,9 @@ onMounted(() => {
     });
 });
 
-const film = films.value.filter((film) => film.titulo === route.params.movie);
-
-console.log(film)
+const film = computed(() => {
+  return films.value.filter((film) => film.titulo === route.params.movie);
+});
 
 function adicionarAoSessionStorage(item: string): void {
   const arrayExistente = JSON.parse(
@@ -93,15 +94,24 @@ function removerSessionStorage(item: string): void {
 
 const filmsFavorites = ref<string[]>([]);
 
-if (sessionStorage.getItem("favorites")) {
-  filmsFavorites.value = JSON.parse(
-    sessionStorage.getItem("favorites") || "[]"
-  );
-
-  if (filmsFavorites.value.includes(film[0].titulo)) {
-    favorite.value = true;
-  }
-}
+watch(
+  film,
+  (newFilm) => {
+    if (newFilm.length > 0) {
+      if (sessionStorage.getItem("favorites")) {
+        const filmsFavorites = JSON.parse(
+          sessionStorage.getItem("favorites") || "[]"
+        );
+        if (filmsFavorites.includes(newFilm[0].titulo)) {
+          favorite.value = true;
+        } else {
+          favorite.value = false;
+        }
+      }
+    }
+  },
+  { immediate: true }
+);
 
 function carregarDoSessionStorage(): void {
   filmsFavorites.value = JSON.parse(

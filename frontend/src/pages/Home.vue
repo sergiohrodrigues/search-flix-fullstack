@@ -33,6 +33,7 @@
         :opts="{
           align: 'start',
         }"
+        v-if="films.length > 0"
       >
         <CarouselContent class="-ml-1">
           <CarouselItem
@@ -46,10 +47,14 @@
                 class="hover:cursor-pointer"
               >
                 <CardContent
-                  class="flex aspect-square items-center justify-center p-6"
+                  class="flex aspect-square items-center justify-center p-0"
                 >
                   <!-- <span class="text-2xl font-semibold">{{ film.titulo }}</span> -->
-                  <img src="" :alt="film.titulo" class="w-full" />
+                  <img
+                    :src="`/images/film${film.id}.jpg`"
+                    :alt="film.titulo"
+                    class="w-full"
+                  />
                 </CardContent>
               </Card>
             </div>
@@ -58,6 +63,7 @@
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
+      <h3 class="text-xl mt-4" v-else>Sem filmes no momento</h3>
     </section>
   </main>
 </template>

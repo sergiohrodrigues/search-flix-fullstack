@@ -33,7 +33,7 @@ namespace Filmes.Controllers
             var filme = await _filmeInterface.BuscarFilmePorAtor(nomeFilme);
             return Ok(filme);
         }
-        
+
         [HttpGet("BuscarFilmePorId")]
         public async Task<ActionResult<ResponseModel<FilmeModel>>> BuscarFilmePorId(int idFilme)
         {
@@ -62,7 +62,7 @@ namespace Filmes.Controllers
             var filme = await _filmeInterface.ExcluirFilme(idFilme);
             return Ok(filme);
         }
-        
+
         [HttpGet("BuscarCategorias")]
         public async Task<ActionResult<IEnumerable<string>>> BuscarCategorias()
         {
@@ -70,7 +70,7 @@ namespace Filmes.Controllers
 
             return Ok(strings);
         }
-        
+
 
     }
 }
