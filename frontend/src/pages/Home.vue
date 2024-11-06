@@ -74,9 +74,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-vue-next";
 import Button from "../components/ui/button/Button.vue";
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
-import films from "../filmes.json";
+// import films from "../filmes.json";
 
 const searchFilm = ref("");
 const router = useRouter();
@@ -85,4 +85,17 @@ const buscarFilme = () => {
   router.push(`/movies/${searchFilm.value}`);
   searchFilm.value = "";
 };
+
+const films = ref([]);
+
+onMounted(() => {
+  fetch("https://localhost:7181/api/Filme/ListarFilmes")
+    .then((response) => response.json())
+    .then((data) => {
+      films.value = data.dados;
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar filmes:", error);
+    });
+});
 </script>

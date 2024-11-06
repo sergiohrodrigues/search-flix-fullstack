@@ -21,22 +21,31 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
 import { Card, CardContent } from "../components/ui/card";
-import { computed } from "vue";
-import films from "../filmes.json";
+import { computed, onMounted, ref } from "vue";
 
 const route = useRoute();
 const router = useRouter();
 
+const films = ref([]);
+
+onMounted(() => {
+  fetch("https://localhost:7181/api/Filme/ListarFilmes")
+    .then((response) => response.json())
+    .then((data) => {
+      films.value = data.dados;
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar filmes:", error);
+    });
+});
+
 const filmes = computed(() => {
   if (route.params.search) {
-    return films.filter((film) =>
+    return films.value.filter((film) =>
       film.titulo.toUpperCase().includes(route.params.search.toUpperCase())
     );
   } else {
-    return films;
+    return films.value;
   }
 });
 </script>
-
-<style scoped>
-</style>
