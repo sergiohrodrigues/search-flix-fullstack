@@ -5,6 +5,8 @@ using Filmes.Services.Ator;
 using Filmes.Services.Filme;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static Filmes.Enums.EnumCategorias;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Filmes.Controllers
 {
@@ -60,5 +62,15 @@ namespace Filmes.Controllers
             var filme = await _filmeInterface.ExcluirFilme(idFilme);
             return Ok(filme);
         }
+        
+        [HttpGet("BuscarCategorias")]
+        public async Task<ActionResult<IEnumerable<string>>> BuscarCategorias()
+        {
+            var strings = Enum.GetNames(typeof(Categorias));
+
+            return Ok(strings);
+        }
+        
+
     }
 }

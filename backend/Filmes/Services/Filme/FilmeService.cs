@@ -1,6 +1,8 @@
 ﻿using Filmes.Data;
 using Filmes.Dto.Filme;
+using Filmes.Enums;
 using Filmes.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace Filmes.Services.Filme
@@ -212,6 +214,5 @@ namespace Filmes.Services.Filme
                 return resposta;
             }
         }
-
     }
 }

@@ -12,5 +12,6 @@ namespace Filmes.Services.Filme
         Task<ResponseModel<List<FilmeModel>>> EditarFilme(FilmeEditarDto filmeEditarDto);
         Task<ResponseModel<List<FilmeModel>>> ExcluirFilme (int idFilme);
 
+
     }
 }
