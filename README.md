@@ -13,12 +13,12 @@ Como eu usei o Visual Studio para fazer o back-end aconselho usar ele para rodar
 
 ## Terceiro passo, rodar front-end
 Abra a pasta "front-end" em seu sua IDE de desenvolvimento(visual studio code, sublime text, etc.. ) e coloque para rodar com "npm run dev".
-
+<br/>
 ## Pronto agora voce poderá testar o projeto
 
 <br/><br/>
-## Sobre o projeto
-Basicamente é um projeto de filmes, onde o usuario consegue ver esses detalhes na tela de um forma divertida, vendo os filmes, atores, detalhes do filme, trailler, etc, no backend já tem os endpoints de cadastrar atores, filmes, editar, excluir e tal, mas no front não tem ainda...
+# Sobre o projeto
+## Basicamente é um projeto de filmes, onde o usuario consegue ver esses detalhes na tela de um forma divertida, vendo os filmes, atores, detalhes do filme, trailler, etc, no backend já tem os endpoints de cadastrar atores, filmes, editar, excluir e tal, mas no front não tem ainda...
 
 <br/><br/>
 ### E é esse meu projeto, espero que tenha gostado :)
