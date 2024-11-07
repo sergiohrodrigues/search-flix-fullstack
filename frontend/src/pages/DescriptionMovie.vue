@@ -33,10 +33,13 @@ import Badge from "../components/ui/badge/Badge.vue";
 import Button from "../components/ui/button/Button.vue";
 import { Heart, Star } from "lucide-vue-next";
 import { computed, onMounted, ref, watch } from "vue";
-import { toast } from "vue-sonner";
+import { useToast } from "../components/ui/toast";
+import { ToastAction } from "@/components/ui/toast";
+import { h } from "vue";
 
 const route = useRoute();
 const router = useRouter();
+const { toast } = useToast();
 
 const favorite = ref(false);
 
@@ -44,10 +47,6 @@ const films = ref([]);
 
 onMounted(() => {
   carregarDoSessionStorage();
-<<<<<<< HEAD
-
-=======
->>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
   fetch("https://localhost:7181/api/Filme/ListarFilmes")
     .then((response) => response.json())
     .then((data) => {
@@ -59,15 +58,9 @@ onMounted(() => {
     });
 });
 
-<<<<<<< HEAD
 const film = computed(() => {
   return films.value.filter((film) => film.titulo === route.params.movie);
 });
-=======
-const film = films.value.filter((film) => film.titulo === route.params.movie);
-
-console.log(film)
->>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
 
 function adicionarAoSessionStorage(item: string): void {
   const arrayExistente = JSON.parse(
@@ -78,15 +71,17 @@ function adicionarAoSessionStorage(item: string): void {
 
   sessionStorage.setItem("favorites", JSON.stringify(arrayExistente));
 
-  toast.success("Filme adicionado aos favoritos", {
-    action: {
-      label: "Close",
-      onClick: () => console.log("Undo"),
-    },
-    position: "top-right",
-    style: {
-      background: "#6ee7b7",
-    },
+  toast({
+    title: "Filme adicionado aos favoritos",
+    action: h(
+      ToastAction,
+      {
+        altText: "Close",
+      },
+      {
+        default: () => "Close",
+      }
+    ),
   });
 }
 
@@ -102,6 +97,8 @@ function removerSessionStorage(item: string): void {
 }
 
 const filmsFavorites = ref<string[]>([]);
+
+console.log(filmsFavorites.value);
 
 watch(
   film,
@@ -131,13 +128,18 @@ function carregarDoSessionStorage(): void {
 function removerLocalStorage(item: string): void {
   const itemARemover = filmsFavorites.value.filter((i) => i == item);
   removerSessionStorage(itemARemover.toString());
-  toast.success("Filme removido dos favoritos", {
-    action: {
-      label: "Close",
-      onClick: () => console.log("Undo"),
-    },
-    position: "top-right",
-    style: { background: "#fda4af" },
+  toast({
+    title: "Filme removido dos favoritos",
+    variant: "destructive",
+    action: h(
+      ToastAction,
+      {
+        altText: "Close",
+      },
+      {
+        default: () => "Close",
+      }
+    ),
   });
 }
 

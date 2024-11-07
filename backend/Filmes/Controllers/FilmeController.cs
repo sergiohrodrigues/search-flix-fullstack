@@ -62,11 +62,7 @@ namespace Filmes.Controllers
             var filme = await _filmeInterface.ExcluirFilme(idFilme);
             return Ok(filme);
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
         [HttpGet("BuscarCategorias")]
         public async Task<ActionResult<IEnumerable<string>>> BuscarCategorias()
         {
@@ -74,11 +70,7 @@ namespace Filmes.Controllers
 
             return Ok(strings);
         }
-<<<<<<< HEAD
 
-=======
-        
->>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
 
     }
 }

@@ -28,6 +28,7 @@ const route = useRoute();
 const router = useRouter();
 
 const films = ref([]);
+const categoriasApi = ref([]);
 
 onMounted(() => {
   fetch("https://localhost:7181/api/Filme/ListarFilmes")
@@ -38,12 +39,35 @@ onMounted(() => {
     .catch((error) => {
       console.error("Erro ao buscar filmes:", error);
     });
+  fetch("https://localhost:7181/api/Filme/buscarCategorias")
+    .then((response) => response.json())
+    .then((data) => {
+      categoriasApi.value = data;
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar filmes:", error);
+    });
 });
+
+let categorias = computed(() => {
+  return categoriasApi.value.map((item) => item);
+});
+
+console.log(categorias.value);
 
 const filmes = computed(() => {
   if (route.params.search) {
     return films.value.filter((film) =>
-      film.titulo.toUpperCase().includes(route.params.search.toUpperCase())
+      film.titulo
+        .normalize("NFD") // Separa caracteres de base e diacríticos
+        .replace(/[\u0300-\u036f]/g, "") // Remove diacríticos
+        .toLowerCase() // Converte para minúsculas
+        .includes(
+          route.params.search
+            .normalize("NFD") // Separa caracteres de base e diacríticos
+            .replace(/[\u0300-\u036f]/g, "") // Remove diacríticos
+            .toLowerCase() // Converte para minúsculas)
+        )
     );
   } else {
     return films.value;

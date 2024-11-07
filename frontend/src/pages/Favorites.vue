@@ -1,9 +1,9 @@
 <template>
-  <section v-if="filmsFavorites[0] !== undefined && filmsFavorites.length > 0">
+  <section v-if="filmsFavoritesAndFiltered.length > 0">
     <h2 class="text-2xl text-center mt-2">Filmes Favoritos</h2>
     <div class="flex flex-wrap gap-2 mt-4 p-3 md:justify-center">
       <Card
-        v-for="film in filmsFavorites"
+        v-for="film in filmsFavoritesAndFiltered"
         :key="film.id"
         class="hover:cursor-pointer"
       >
@@ -11,8 +11,11 @@
           class="w-[130px] h-[150px] p-0"
           @click="router.push(`/movie/${film.titulo}`)"
         >
-          <img src="" :alt="film.titulo" class="w-full h-full" />
-          <!-- <span class="text-2xl font-semibold">{{ film.titulo }}</span> -->
+          <img
+            :src="`/images/film${film.id}.jpg`"
+            :alt="film.titulo"
+            class="w-full h-full"
+          />
         </CardContent>
       </Card>
     </div>
@@ -25,44 +28,57 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { Card, CardContent } from "../components/ui/card";
-import { onMounted, ref, watch } from "vue";
-import films from "../filmes.json";
+import { computed, onMounted, ref, watch } from "vue";
+import IFilme from "../interfaces/Filme";
 
 const router = useRouter();
 
 const filmsStorage = JSON.parse(sessionStorage.getItem("favorites") || "[]");
 
-// const films = ref([]);
+const filmsApi = ref<IFilme[]>([]);
 
-// onMounted(() => {
-//   fetch("https://localhost:7181/api/Filme/ListarFilmes")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       films.value = data.dados;
-//     })
-//     .catch((error) => {
-//       films.value = [];
-//       console.error("Erro ao buscar filmes:", error);
-//     });
-// });
+onMounted(() => {
+  fetch("https://localhost:7181/api/Filme/ListarFilmes")
+    .then((response) => response.json())
+    .then((data) => {
+      filmsApi.value = data.dados;
+    })
+    .catch((error) => {
+      filmsApi.value = [];
+    });
+});
 
-// const filmsFavorites = ref<string[]>();
+const filmsFavorites = ref<IFilme[]>([]);
+
+watch(
+  filmsApi,
+  (newValue) => {
+    if (newValue.length > 0) {
+      filmsFavorites.value = newValue.filter((film) =>
+        filmsStorage.includes(film.titulo)
+      );
+    }
+  },
+  { immediate: true }
+);
+
+const filmsFavoritesAndFiltered = computed(() => filmsFavorites.value);
 
 // watch(
 //   films,
 //   (newFilm) => {
 //     if (newFilm.length > 0) {
-//       filmsFavorites.value = filmsStorage.map((item) => {
-//         return films.value.find((film) => film.titulo == item);
+//       filmsFavorites.value = filmsStorage.map((item: IFilme) => {
+//         return films.value.find((film) => film.titulo == item.titulo);
 //       });
 //     }
 //   },
 //   { immediate: true }
 // );
 
-const filmsFavorites = filmsStorage.map((item) => {
-  return films.find((film) => film.titulo == item);
-});
+// const filmsFavorites = filmsStorage.map((item) => {
+//   return films.find((film) => film.titulo == item);
+// });
 
-console.log(filmsFavorites[0]);
+// console.log(filmsFavorites[0]);
 </script>

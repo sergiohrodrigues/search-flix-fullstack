@@ -283,7 +283,6 @@ B:\Programação\projetos\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\
 B:\Programação\projetos\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.pdb
 B:\Programação\projetos\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.genruntimeconfig.cache
 B:\Programação\projetos\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\ref\Filmes.dll
-<<<<<<< HEAD
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\bin\Debug\net8.0\appsettings.Development.json
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\bin\Debug\net8.0\appsettings.json
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\bin\Debug\net8.0\Filmes.exe
@@ -427,5 +426,3 @@ E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\refint\Filme
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.pdb
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.genruntimeconfig.cache
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\ref\Filmes.dll
-=======
->>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
