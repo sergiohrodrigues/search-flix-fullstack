@@ -1,4 +1,6 @@
-﻿namespace Filmes.Models
+﻿using static Filmes.Enums.EnumCategorias;
+
+namespace Filmes.Models
 {
     public class FilmeModel
     {

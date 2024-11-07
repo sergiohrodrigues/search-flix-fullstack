@@ -44,7 +44,10 @@ const films = ref([]);
 
 onMounted(() => {
   carregarDoSessionStorage();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
   fetch("https://localhost:7181/api/Filme/ListarFilmes")
     .then((response) => response.json())
     .then((data) => {
@@ -56,9 +59,15 @@ onMounted(() => {
     });
 });
 
+<<<<<<< HEAD
 const film = computed(() => {
   return films.value.filter((film) => film.titulo === route.params.movie);
 });
+=======
+const film = films.value.filter((film) => film.titulo === route.params.movie);
+
+console.log(film)
+>>>>>>> 342485a013984a79b8ece6abc03d528a79f7e881
 
 function adicionarAoSessionStorage(item: string): void {
   const arrayExistente = JSON.parse(
