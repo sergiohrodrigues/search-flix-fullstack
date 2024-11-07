@@ -16,7 +16,11 @@ Abra a pasta "front-end" em seu sua IDE de desenvolvimento(visual studio code, s
 
 ## Pronto agora voce poderá testar o projeto
 
+
+
 ## Sobre o projeto
 Basicamente é um projeto de filmes, onde no usuario de Admin voce pode criar filmes, editar, criar Ator, editar Ator, para o usuario ver esses detalhes na tela de um forma divertida, vendo os filmes, atores, detalhes do filme, trailler, etc.
+
+
 
 ### E é esse meu projeto, espero que tenha gostado :)
