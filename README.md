@@ -18,7 +18,7 @@ Abra a pasta "front-end" em seu sua IDE de desenvolvimento(visual studio code, s
 
 <br/><br/>
 # Sobre o projeto
-## Basicamente é um projeto de filmes, onde o usuario consegue ver esses detalhes na tela de um forma divertida, vendo os filmes, atores, detalhes do filme, trailler, etc, no backend já tem os endpoints de cadastrar atores, filmes, editar, excluir e tal, mas no front não tem ainda...
+### Basicamente é um projeto de filmes, onde o usuario consegue ver esses detalhes na tela de um forma divertida, vendo os filmes, atores, detalhes do filme, trailler, etc, no backend já tem os endpoints de cadastrar atores, filmes, editar, excluir e tal, mas no front não tem ainda...
 
 <br/><br/>
 ### E é esse meu projeto, espero que tenha gostado :)
