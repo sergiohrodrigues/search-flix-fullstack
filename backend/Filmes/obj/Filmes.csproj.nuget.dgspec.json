@@ -1,28 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj": {}
+    "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj": {}
   },
   "projects": {
-    "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj": {
+    "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
+        "projectUniqueName": "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
         "projectName": "Filmes",
-        "projectPath": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
+        "projectPath": "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
         "packagesPath": "C:\\Users\\Sergio\\.nuget\\packages\\",
-        "outputPath": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\obj\\",
+        "outputPath": "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Sergio\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -90,7 +88,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "D:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

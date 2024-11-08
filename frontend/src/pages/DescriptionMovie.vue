@@ -55,6 +55,20 @@ onMounted(() => {
     .catch((error) => {
       films.value = [];
       console.error("Erro ao buscar filmes:", error);
+      toast({
+        title: "Dados não obtidos",
+        description: "Conect-se a API para obter os filmes",
+        variant: "destructive",
+        action: h(
+          ToastAction,
+          {
+            altText: "Close",
+          },
+          {
+            default: () => "Close",
+          }
+        ),
+      });
     });
 });
 

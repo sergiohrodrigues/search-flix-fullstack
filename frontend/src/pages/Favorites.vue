@@ -28,10 +28,13 @@
 <script setup lang="ts">
 import { useRouter } from "vue-router";
 import { Card, CardContent } from "../components/ui/card";
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, h, onMounted, ref, watch } from "vue";
 import IFilme from "../interfaces/Filme";
+import ToastAction from "../components/ui/toast/ToastAction.vue";
+import { useToast } from "../components/ui/toast";
 
 const router = useRouter();
+const { toast } = useToast();
 
 const filmsStorage = JSON.parse(sessionStorage.getItem("favorites") || "[]");
 
@@ -45,6 +48,20 @@ onMounted(() => {
     })
     .catch((error) => {
       filmsApi.value = [];
+      toast({
+        title: "Dados não obtidos",
+        description: "Conect-se a API para obter os filmes",
+        variant: "destructive",
+        action: h(
+          ToastAction,
+          {
+            altText: "Close",
+          },
+          {
+            default: () => "Close",
+          }
+        ),
+      });
     });
 });
 
@@ -63,22 +80,4 @@ watch(
 );
 
 const filmsFavoritesAndFiltered = computed(() => filmsFavorites.value);
-
-// watch(
-//   films,
-//   (newFilm) => {
-//     if (newFilm.length > 0) {
-//       filmsFavorites.value = filmsStorage.map((item: IFilme) => {
-//         return films.value.find((film) => film.titulo == item.titulo);
-//       });
-//     }
-//   },
-//   { immediate: true }
-// );
-
-// const filmsFavorites = filmsStorage.map((item) => {
-//   return films.find((film) => film.titulo == item);
-// });
-
-// console.log(filmsFavorites[0]);
 </script>

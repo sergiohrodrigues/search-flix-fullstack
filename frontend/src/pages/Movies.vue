@@ -16,19 +16,26 @@
       </Card>
     </div>
   </section>
-  <h2 class="text-2xl text-center mt-2" v-else>Nenhum filme encontrado</h2>
+  <section v-else class="text-center">
+    <h2 class="text-2xl mt-2">Nenhum filme encontrado</h2>
+    <Button @click="router.back" class="mt-2">Voltar</Button>
+  </section>
 </template>
 
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
 import { Card, CardContent } from "../components/ui/card";
-import { computed, onMounted, ref } from "vue";
+import { computed, h, onMounted, ref } from "vue";
+import ToastAction from "../components/ui/toast/ToastAction.vue";
+import { useToast } from "../components/ui/toast";
+import { Button } from "../components/ui/button";
 
 const route = useRoute();
 const router = useRouter();
+const { toast } = useToast();
 
 const films = ref([]);
-const categoriasApi = ref([]);
+// const categoriasApi = ref([]);
 
 onMounted(() => {
   fetch("https://localhost:7181/api/Filme/ListarFilmes")
@@ -38,22 +45,36 @@ onMounted(() => {
     })
     .catch((error) => {
       console.error("Erro ao buscar filmes:", error);
+      toast({
+        title: "Dados não obtidos",
+        description: "Conect-se a API para obter os filmes",
+        variant: "destructive",
+        action: h(
+          ToastAction,
+          {
+            altText: "Close",
+          },
+          {
+            default: () => "Close",
+          }
+        ),
+      });
     });
-  fetch("https://localhost:7181/api/Filme/buscarCategorias")
-    .then((response) => response.json())
-    .then((data) => {
-      categoriasApi.value = data;
-    })
-    .catch((error) => {
-      console.error("Erro ao buscar filmes:", error);
-    });
+  // fetch("https://localhost:7181/api/Filme/buscarCategorias")
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     categoriasApi.value = data;
+  //   })
+  //   .catch((error) => {
+  //     console.error("Erro ao buscar filmes:", error);
+  //   });
 });
 
-let categorias = computed(() => {
-  return categoriasApi.value.map((item) => item);
-});
+// let categorias = computed(() => {
+//   return categoriasApi.value.map((item) => item);
+// });
 
-console.log(categorias.value);
+// console.log(categorias.value);
 
 const filmes = computed(() => {
   if (route.params.search) {
