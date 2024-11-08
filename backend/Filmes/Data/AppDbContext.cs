@@ -15,6 +15,7 @@ namespace Filmes.Data
 
         public DbSet<AtorModel> Atores { get; set; }
         public DbSet<FilmeModel> Filmes { get; set; }
+        public DbSet<UserAdminModel> UserAdmin { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -110,6 +111,17 @@ namespace Filmes.Data
                     AtorId = 1
                 }
             );
+
+            //Dados iniciais para a tabela de UserAdmin
+            modelBuilder.Entity<UserAdminModel>().HasData(
+                new UserAdminModel
+                {
+                    Id = 1,
+                    User = "sergio",
+                    Password = "123456",
+                    Email = "sergiohrodriguess@gmail.com",
+                }
+               );
         }
     }
 }

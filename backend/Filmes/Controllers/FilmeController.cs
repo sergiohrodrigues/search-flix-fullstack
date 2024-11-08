@@ -20,10 +20,10 @@ namespace Filmes.Controllers
             _filmeInterface = filmeInterface;
         }
 
-        [HttpGet("listarFilmes")]
-        public async Task<ActionResult<ResponseModel<List<FilmeModel>>>> listarFilmes()
+        [HttpGet("ListarFilmes")]
+        public async Task<ActionResult<ResponseModel<List<FilmeModel>>>> ListarFilmes()
         {
-            var filmes = await _filmeInterface.listarFilmes();
+            var filmes = await _filmeInterface.ListarFilmes();
             return Ok(filmes);
         }
 

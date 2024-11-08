@@ -5,7 +5,7 @@ namespace Filmes.Services.Filme
 {
     public interface IFilmeInterface
     {
-        Task<ResponseModel<List<FilmeModel>>> listarFilmes();
+        Task<ResponseModel<List<FilmeModel>>> ListarFilmes();
         Task<ResponseModel<FilmeModel>> BuscarFilmePorId (int idFilme);
         Task<ResponseModel<List<FilmeModel>>> BuscarFilmePorAtor(string Nome);
         Task<ResponseModel<List<FilmeModel>>> CriarFilme(FilmeCriacaoDto filmeCriacaoDto);

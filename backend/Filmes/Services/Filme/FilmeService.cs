@@ -14,7 +14,7 @@ namespace Filmes.Services.Filme
         {
             _context = context;
         }
-        public async Task<ResponseModel<List<FilmeModel>>> listarFilmes()
+        public async Task<ResponseModel<List<FilmeModel>>> ListarFilmes()
         {
             ResponseModel<List<FilmeModel>> resposta = new ResponseModel<List<FilmeModel>>();
 

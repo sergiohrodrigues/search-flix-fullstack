@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oOnsow49MAw=",
+  "dgSpecHash": "CU4vG2F7DGY=",
   "success": true,
-  "projectFilePath": "B:\\Programação\\projetos\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
+  "projectFilePath": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Filmes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Sergio\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Sergio\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

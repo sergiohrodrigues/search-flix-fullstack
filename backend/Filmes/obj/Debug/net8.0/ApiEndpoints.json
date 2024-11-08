@@ -301,8 +301,8 @@
   },
   {
     "ContainingType": "Filmes.Controllers.FilmeController",
-    "Method": "listarFilmes",
-    "RelativePath": "api/Filme/listarFilmes",
+    "Method": "ListarFilmes",
+    "RelativePath": "api/Filme/ListarFilmes",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -310,6 +310,58 @@
     "ReturnTypes": [
       {
         "Type": "Filmes.Models.ResponseModel\u00601[[System.Collections.Generic.List\u00601[[Filmes.Models.FilmeModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.UserAdminController",
+    "Method": "CriarUsuario",
+    "RelativePath": "api/UserAdmin/CriarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAdminCriacaoDto",
+        "Type": "Filmes.Dto.UserAdmin.UserAdminCriacaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.UserAdminController",
+    "Method": "LogarUsuario",
+    "RelativePath": "api/UserAdmin/LogarUsuario",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userAdminLogin",
+        "Type": "Filmes.Dto.UserAdmin.UserAdminLoginDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.AtorModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
