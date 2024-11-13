@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using static Filmes.Enums.EnumCategorias;
+using System.Text.Json.Serialization;
 
 namespace Filmes.Models
 {
@@ -11,10 +11,9 @@ namespace Filmes.Models
         public string Descricao { get; set; } = string.Empty;
         public string Categoria { get; set; } = string.Empty ;
         public string UrlTrailler { get; set; } = string.Empty;
-        public int AtorId { get; set; }
 
-        // Define o relacionamento com AtorModel
-        [ForeignKey("AtorId")]
-        public AtorModel Ator { get; set; }
+        public string urlImage { get; set; }
+        [JsonIgnore]
+        public ICollection<AtorFilmeModel> AtorFilmes { get; set; }
     }
 }

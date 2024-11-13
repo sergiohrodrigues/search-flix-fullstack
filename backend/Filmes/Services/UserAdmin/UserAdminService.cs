@@ -56,32 +56,32 @@ public class UserAdminService : IUserAdminInterface
             }
         }
 
-    public async Task<ResponseModel<UserAdminModel>> LogarUsuario(UserAdminLoginDto userAdminDto)
-    {
-        ResponseModel<UserAdminModel> resposta = new ResponseModel<UserAdminModel>();
-        try
+        public async Task<ResponseModel<UserAdminModel>> LogarUsuario(UserAdminLoginDto userAdminDto)
         {
-
-
-            var user = await _context.UserAdmin.FirstOrDefaultAsync(userBanco => userBanco.User == userAdminDto.User && userBanco.Password == userAdminDto.Password);
-
-            if (user == null)
+            ResponseModel<UserAdminModel> resposta = new ResponseModel<UserAdminModel>();
+            try
             {
-                resposta.Mensagem = "Usuario não encontrado!";
+
+
+                var user = await _context.UserAdmin.FirstOrDefaultAsync(userBanco => userBanco.User == userAdminDto.User && userBanco.Password == userAdminDto.Password);
+
+                if (user == null)
+                {
+                    resposta.Mensagem = "Usuario não encontrado!";
+                    return resposta;
+                }
+
+                resposta.Dados = user;
+                resposta.Mensagem = "Usuário encontrado!";
+
+                return resposta;
+
+            }
+            catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
                 return resposta;
             }
-
-            resposta.Dados = user;
-            resposta.Mensagem = "Usuário encontrado!";
-
-            return resposta;
-
         }
-        catch (Exception ex)
-        {
-            resposta.Mensagem = ex.Message;
-            resposta.Status = false;
-            return resposta;
-        }
-    }
 }

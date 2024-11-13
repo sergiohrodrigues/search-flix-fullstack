@@ -1,8 +1,8 @@
 [
   {
     "ContainingType": "Filmes.Controllers.AtorController",
-    "Method": "BuscarAtorPorFilme",
-    "RelativePath": "api/Ator/BuscarAtorPorFilme",
+    "Method": "BuscarAtoresPorFilme",
+    "RelativePath": "api/Ator/BuscarAtoresPorFilme",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,

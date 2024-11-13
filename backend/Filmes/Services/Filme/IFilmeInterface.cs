@@ -1,5 +1,6 @@
 ﻿using Filmes.Dto.Filme;
 using Filmes.Models;
+using Filmes.Models.Response;
 
 namespace Filmes.Services.Filme
 {

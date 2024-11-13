@@ -1,7 +1,7 @@
 ﻿using Filmes.Data;
 using Filmes.Dto.Ator;
 using Filmes.Models;
-using Microsoft.AspNetCore.Components.Forms;
+using Filmes.Models.Response;
 using Microsoft.EntityFrameworkCore;
 
 namespace Filmes.Services.Ator
@@ -64,27 +64,36 @@ namespace Filmes.Services.Ator
             }
         }
 
-        public async Task<ResponseModel<AtorModel>> BuscarAtorPorFilme(string filme)
+        public async Task<ResponseModel<List<FilmeComAtoresResponse>>> BuscarAtoresPorFilme(string filme)
         {
-            ResponseModel<AtorModel> resposta = new ResponseModel<AtorModel>();
+            ResponseModel<List<FilmeComAtoresResponse>> resposta = new ResponseModel<List<FilmeComAtoresResponse>>();
 
             try
             {
-                var film = await _context.Filmes
-                    .Include(a => a.Ator)
-                    .FirstOrDefaultAsync(filmeBanco => filmeBanco.Titulo.Contains(filme));
+                var filmes = await _context.Filmes
+                    .Include(f => f.AtorFilmes)
+                    .ThenInclude(af => af.Ator)
+                    .Where(filmeBanco => filmeBanco.Titulo.Contains(filme))
+                    .ToListAsync();
 
-                if (film == null)
+                if (!filmes.Any())
                 {
-                    resposta.Mensagem = "Nenhum registro foi encontrado!";
+                    resposta.Mensagem = "Nenhum filme foi encontrado!";
                     return resposta;
                 }
 
-                resposta.Dados = film.Ator;
-                resposta.Mensagem = "Ator encontrado!";
+                resposta.Dados = filmes.Select(film => new FilmeComAtoresResponse
+                {
+                    Id = film.Id,
+                    Titulo = film.Titulo,
+                    Descricao = film.Descricao,
+                    Categoria = film.Categoria,
+                    UrlTrailler = film.UrlTrailler,
+                    Atores = film.AtorFilmes.Select(af => af.Ator).ToList()
+                }).ToList();
 
+                resposta.Mensagem = "Filmes e atores encontrados!";
                 return resposta;
-
             }
             catch (Exception ex)
             {
@@ -94,9 +103,9 @@ namespace Filmes.Services.Ator
             }
         }
 
-        public async Task<ResponseModel<List<AtorModel>>> CriarAtor(AtorCriacaoDto atorCriacaoDto)
+        public async Task<ResponseModel<AtorModel>> CriarAtor(AtorCriacaoDto atorCriacaoDto)
         {
-            ResponseModel<List<AtorModel>> resposta = new ResponseModel<List<AtorModel>>();
+            ResponseModel<AtorModel> resposta = new ResponseModel<AtorModel>();
 
             try
             {
@@ -106,19 +115,28 @@ namespace Filmes.Services.Ator
                     return resposta;
                 }
 
+                var atorExistente = await _context.Atores.FirstOrDefaultAsync(atorBanco => atorBanco.Nome.ToLower() == atorCriacaoDto.Nome.ToLower());
+
+                if (atorExistente != null)
+                {
+                    resposta.Mensagem = "Este Ator já existe";
+                    return resposta;
+                }
+
                 var ator = new AtorModel()
                 {
                     Nome = atorCriacaoDto.Nome,
                     Sobrenome = atorCriacaoDto.Sobrenome,
                     Datanasc = atorCriacaoDto.Datanasc,
-                    Nacionalidade = atorCriacaoDto.Nacionalidade
+                    Nacionalidade = atorCriacaoDto.Nacionalidade,
+                    urlImage = atorCriacaoDto.urlImage
                 };
 
                 _context.Add(ator);
                 _context.SaveChanges();
 
-                resposta.Dados = await _context.Atores.ToListAsync();
-                resposta.Mensagem = "Ator encontrado!";
+                resposta.Dados = ator;
+                resposta.Mensagem = "Ator criado com sucesso!";
 
                 return resposta;
 
@@ -131,9 +149,9 @@ namespace Filmes.Services.Ator
             }
         }
 
-        public async Task<ResponseModel<List<AtorModel>>> EditarAtor(AtorEdicaoDto atorEdicaoDto)
+        public async Task<ResponseModel<AtorModel>> EditarAtor(AtorEdicaoDto atorEdicaoDto)
         {
-            ResponseModel<List<AtorModel>> resposta = new ResponseModel<List<AtorModel>>();
+            ResponseModel<AtorModel> resposta = new ResponseModel<AtorModel>();
 
             try
             {
@@ -151,7 +169,7 @@ namespace Filmes.Services.Ator
                 _context.Update(ator);
                 _context.SaveChanges();
 
-                resposta.Dados = await _context.Atores.ToListAsync();
+                resposta.Dados = ator;
                 resposta.Mensagem = "Ator editado com sucesso!";
 
                 return resposta;

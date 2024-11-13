@@ -20,7 +20,7 @@ namespace Filmes.Services.Filme
 
             try
             {
-                var filmes = await _context.Filmes.Include(a => a.Ator).ToListAsync();
+                var filmes = await _context.Filmes.ToListAsync();
                 resposta.Dados = filmes;
                 resposta.Mensagem = "Todos filmes foram coletados!";
 
@@ -41,21 +41,18 @@ namespace Filmes.Services.Filme
             try
             {
 
-                var filme = await _context.Filmes
-                    .Include(a => a.Ator)
-                    .Where(f => f.Ator.Nome.Contains(Nome))
-                    .ToListAsync();
+                var filme = await _context.Atores
+                    .Include(a => a.AtorFilmes)
+                    .ThenInclude(af => af.Filme)
+                    .FirstOrDefaultAsync(a => a.Nome.Contains(Nome));
 
-                Console.WriteLine("teste");
-                Console.WriteLine(filme);
-
-                if (filme == null)
+                if(filme == null)
                 {
                     resposta.Mensagem = "Nenhum ator foi encontrado";
                     return resposta;
                 }
 
-                resposta.Dados = filme;
+                resposta.Dados = filme.AtorFilmes.Select(a => a.Filme).ToList();
                 resposta.Mensagem = "Todos atores foram coletados";
 
                 return resposta;
@@ -76,17 +73,17 @@ namespace Filmes.Services.Filme
             try
             {
 
-                var filme = await _context.Filmes
-                    .Include(a => a.Ator)
-                    .FirstOrDefaultAsync(filmeBanco => filmeBanco.Id == idFilme);
+                //var filme = await _context.Filmes
+                //    .Include(a => a.Ator)
+                //    .FirstOrDefaultAsync(filmeBanco => filmeBanco.Id == idFilme);
 
-                if (filme == null)
-                {
-                    resposta.Mensagem = "Filme nao encontrado!";
-                    return resposta;
-                }
+                //if (filme == null)
+                //{
+                //    resposta.Mensagem = "Filme nao encontrado!";
+                //    return resposta;
+                //}
 
-                resposta.Dados = filme;
+                //resposta.Dados = filme;
                 resposta.Mensagem = "Filme encontrado com sucesso!";
 
                 return resposta;
@@ -114,17 +111,17 @@ namespace Filmes.Services.Filme
                     return resposta;
                 }
 
-                var filme = new FilmeModel()
-                {
-                    Titulo = filmeCriacaoDto.Titulo,
-                    Descricao = filmeCriacaoDto.Descricao,
-                    Ator = ator
-                };
+                //var filme = new FilmeModel()
+                //{
+                //    Titulo = filmeCriacaoDto.Titulo,
+                //    Descricao = filmeCriacaoDto.Descricao,
+                //    Ator = ator
+                //};
 
-                _context.Add(filme);
-                _context.SaveChanges();
+                //_context.Add(filme);
+                //_context.SaveChanges();
 
-                resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
+                //resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
                 resposta.Mensagem = "Filme criado com sucesso!";
 
                 return resposta;
@@ -144,33 +141,33 @@ namespace Filmes.Services.Filme
 
             try
             {
-                var filme = await _context.Filmes
-                    .Include(a => a.Ator)
-                    .FirstOrDefaultAsync(filmeBanco => filmeBanco.Id == filmeEditarDto.Id);
+                //var filme = await _context.Filmes
+                //    .Include(a => a.Ator)
+                //    .FirstOrDefaultAsync(filmeBanco => filmeBanco.Id == filmeEditarDto.Id);
 
-                var ator = await _context.Atores
-                    .FirstOrDefaultAsync(filme => filme.Id == filmeEditarDto.Ator.Id);
+                //var ator = await _context.Atores
+                //    .FirstOrDefaultAsync(filme => filme.Id == filmeEditarDto.Ator.Id);
 
-                if (filme == null)
-                {
-                    resposta.Mensagem = "Nenhum registro de filme localizado!";
-                    return resposta;
-                }
+                //if (filme == null)
+                //{
+                //    resposta.Mensagem = "Nenhum registro de filme localizado!";
+                //    return resposta;
+                //}
                 
-                if (ator == null)
-                {
-                    resposta.Mensagem = "Nenhum registro de ator localizado!";
-                    return resposta;
-                }
+                //if (ator == null)
+                //{
+                //    resposta.Mensagem = "Nenhum registro de ator localizado!";
+                //    return resposta;
+                //}
 
-                filme.Titulo = filmeEditarDto.Titulo;
-                filme.Descricao = filmeEditarDto.Descricao;
-                filme.Ator = ator;
+                //filme.Titulo = filmeEditarDto.Titulo;
+                //filme.Descricao = filmeEditarDto.Descricao;
+                //filme.Ator = ator;
 
-                _context.Update(filme);
-                _context.SaveChanges();
+                //_context.Update(filme);
+                //_context.SaveChanges();
 
-                resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
+                //resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
                 resposta.Mensagem = "Filme editado com sucesso!";
 
                 return resposta;
@@ -201,7 +198,7 @@ namespace Filmes.Services.Filme
                 _context.Remove(filme);
                 _context.SaveChanges();
 
-                resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
+                //resposta.Dados = await _context.Filmes.Include(a => a.Ator).ToListAsync();
                 resposta.Mensagem = "Filme editado com sucesso!";
 
                 return resposta;

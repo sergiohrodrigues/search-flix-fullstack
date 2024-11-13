@@ -11,11 +11,7 @@
           class="w-[130px] h-[150px] p-0"
           @click="router.push(`/movie/${film.titulo}`)"
         >
-          <img
-            :src="`/images/film${film.id}.jpg`"
-            :alt="film.titulo"
-            class="w-full h-full"
-          />
+          <img :src="film.urlImage" :alt="film.titulo" class="w-full h-full" />
         </CardContent>
       </Card>
     </div>

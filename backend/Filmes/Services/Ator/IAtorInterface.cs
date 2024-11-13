@@ -2,6 +2,7 @@
 
 using Filmes.Dto.Ator;
 using Filmes.Models;
+using Filmes.Models.Response;
 
 namespace Filmes.Services.Ator
 {
@@ -9,9 +10,9 @@ namespace Filmes.Services.Ator
     {
         Task<ResponseModel<List<AtorModel>>> ListarAtores();
         Task<ResponseModel<AtorModel>> BuscarAtorPorId(int idAtor);
-        Task<ResponseModel<AtorModel>> BuscarAtorPorFilme(string filme);
-        Task<ResponseModel<List<AtorModel>>> CriarAtor(AtorCriacaoDto atorCriacaoDto);
-        Task<ResponseModel<List<AtorModel>>> EditarAtor(AtorEdicaoDto atorEdicaoDto);
+        Task<ResponseModel<List<FilmeComAtoresResponse>>> BuscarAtoresPorFilme(string filme);
+        Task<ResponseModel<AtorModel>> CriarAtor(AtorCriacaoDto atorCriacaoDto);
+        Task<ResponseModel<AtorModel>> EditarAtor(AtorEdicaoDto atorEdicaoDto);
         Task<ResponseModel<List<AtorModel>>> ExcluirAtor(int idAtor);
 
     }

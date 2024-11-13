@@ -6,5 +6,6 @@
         public string Sobrenome { get; set; }
         public DateTime Datanasc { get; set; }
         public string Nacionalidade { get; set; }
+        public string urlImage { get; set; }
     }
 }

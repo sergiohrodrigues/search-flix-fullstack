@@ -30,16 +30,17 @@ namespace Filmes.Controllers
             return Ok(ator);
         }
         
-        [HttpGet("BuscarAtorPorFilme")]
-        public async Task<ActionResult<ResponseModel<AtorModel>>> BuscarAtorPorFilme(string filme)
+        [HttpGet("BuscarAtoresPorFilme")]
+        public async Task<ActionResult<ResponseModel<AtorModel>>> BuscarAtoresPorFilme(string filme)
         {
-            var ator = await _atorInterface.BuscarAtorPorFilme(filme);
+            var ator = await _atorInterface.BuscarAtoresPorFilme(filme);
             return Ok(ator);
         }
         
         [HttpPost("CriarAtor")]
         public async Task<ActionResult<ResponseModel<AtorModel>>> CriarAtor(AtorCriacaoDto atorCriacaoDto)
         {
+            //passar filme tbm para ja fazer vinculação
             var ator = await _atorInterface.CriarAtor(atorCriacaoDto);
             return Ok(ator);
         }
