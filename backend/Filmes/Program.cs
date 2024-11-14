@@ -1,11 +1,10 @@
 
 using Filmes.Data;
-using Filmes.Models;
 using Filmes.Services.Ator;
 using Filmes.Services.Filme;
 using Filmes.Services.UserAdmin;
+using Filmes.Services.UserStardard;
 using Microsoft.EntityFrameworkCore;
-using System.Net.NetworkInformation;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IFilmeInterface, FilmeService>();
 builder.Services.AddScoped<IAtorInterface, AtorService>();
 builder.Services.AddScoped<IUserAdminInterface, UserAdminService>();
+builder.Services.AddScoped<IUserStardardInterface, UserStandardService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
 {

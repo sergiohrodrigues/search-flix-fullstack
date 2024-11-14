@@ -25,18 +25,20 @@ public class UserAdminService : IUserAdminInterface
                 return resposta;
             }
 
-            /*var usuarioExistente = await _context.UserAdmin.FirstOrDefaultAsync(userBanco => userBanco.User == userAdminDto.User);
+            var usuarioExistente = await _context.UserAdmin.FirstOrDefaultAsync(userBanco => userBanco.User.ToLower() == userAdminDto.User.ToLower());
 
             if (usuarioExistente == null)
             {
-
-            }*/
+                resposta.Mensagem = "Usuário já cadastrado!";
+                return resposta;
+            }
 
             var user = new UserAdminModel()
             {
                 User = userAdminDto.User,
                 Password = userAdminDto.Password,
                 Email = userAdminDto.Email,
+                Datanasc = userAdminDto.DataNasc
             };
 
             _context.Add(user);

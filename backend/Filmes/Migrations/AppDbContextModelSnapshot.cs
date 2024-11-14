@@ -269,6 +269,9 @@ namespace Filmes.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("Datanasc")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -288,10 +291,45 @@ namespace Filmes.Migrations
                     b.HasData(
                         new
                         {
-                            Id = 1,
+                            Id = 2,
+                            Datanasc = new DateTime(1994, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sergiohrodriguess@gmail.com",
                             Password = "123456",
                             User = "sergio"
+                        });
+                });
+
+            modelBuilder.Entity("Filmes.Models.UserStandardModel", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("User")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserStandard");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Email = "sergioteste@gmail.com",
+                            Password = "1234567",
+                            User = "sergior"
                         });
                 });
 

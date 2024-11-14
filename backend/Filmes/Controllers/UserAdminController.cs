@@ -18,14 +18,14 @@ namespace Filmes.Controllers
         }
 
         [HttpPost("CriarUsuario")]
-        public async Task<ActionResult<ResponseModel<AtorModel>>> CriarUsuario(UserAdminCriacaoDto userAdminCriacaoDto)
+        public async Task<ActionResult<ResponseModel<UserAdminModel>>> CriarUsuario(UserAdminCriacaoDto userAdminCriacaoDto)
         {
             var user = await _userAdminInterface.CriarUsuario(userAdminCriacaoDto);
             return Ok(user);
         }
 
         [HttpPost("LogarUsuario")]
-        public async Task<ActionResult<ResponseModel<AtorModel>>> LogarUsuario(UserAdminLoginDto userAdminLogin)
+        public async Task<ActionResult<ResponseModel<UserAdminModel>>> LogarUsuario(UserAdminLoginDto userAdminLogin)
         {
             var user = await _userAdminInterface.LogarUsuario(userAdminLogin);
             return Ok(user);

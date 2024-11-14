@@ -15,6 +15,7 @@ namespace Filmes.Data
 
         public DbSet<AtorModel> Atores { get; set; }
         public DbSet<FilmeModel> Filmes { get; set; }
+        public DbSet<UserStandardModel> UserStandard { get; set; }
         public DbSet<UserAdminModel> UserAdmin { get; set; }
 
 
@@ -193,16 +194,29 @@ namespace Filmes.Data
                 }
             );
 
+            //Dados iniciais para a tabela de UserStandard
+            modelBuilder.Entity<UserStandardModel>().HasData(
+                new UserStandardModel
+                {
+                    Id = 1,
+                    User = "sergior",
+                    Password = "1234567",
+                    Email = "sergioteste@gmail.com"
+                }
+               );
+
             //Dados iniciais para a tabela de UserAdmin
             modelBuilder.Entity<UserAdminModel>().HasData(
                 new UserAdminModel
                 {
-                    Id = 1,
+                    Id = 2,
                     User = "sergio",
                     Password = "123456",
                     Email = "sergiohrodriguess@gmail.com",
+                    Datanasc = new DateTime(1994, 9, 24)
                 }
                );
+            
         }
     }
 }
