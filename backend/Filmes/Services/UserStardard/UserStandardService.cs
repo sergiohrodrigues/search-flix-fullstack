@@ -12,7 +12,7 @@ namespace Filmes.Services.UserStardard
         {
             _context = context;
         }
-        public async Task<ResponseModel<UserStandardModel>> CriarUsuario(UserStandardCriacaoDto userStandardDto)
+        public async Task<ResponseModel<UserStandardModel>> CreateUser(UserStandardCriacaoDto userStandardDto)
         {
             ResponseModel<UserStandardModel> resposta = new ResponseModel<UserStandardModel>();
             try
@@ -44,6 +44,36 @@ namespace Filmes.Services.UserStardard
 
                 resposta.Dados = user;
                 resposta.Mensagem = "Usuário cadastrado com sucesso!";
+
+                return resposta;
+
+            }
+            catch (Exception ex)
+            {
+                resposta.Mensagem = ex.Message;
+                resposta.Status = false;
+                return resposta;
+            }
+        }
+
+        public async Task<ResponseModel<UserStandardModel>> LoginUser(UserStandardLoginDto userStandardDto)
+        {
+            ResponseModel<UserStandardModel> resposta = new ResponseModel<UserStandardModel>();
+            try
+            {
+
+
+                var user = await _context.UserStandard
+                    .FirstOrDefaultAsync(userBanco => userBanco.User == userStandardDto.User && userBanco.Password == userStandardDto.Password);
+
+                if (user == null)
+                {
+                    resposta.Mensagem = "Usuario não encontrado!";
+                    return resposta;
+                }
+
+                resposta.Dados = user;
+                resposta.Mensagem = "Usuário encontrado!";
 
                 return resposta;
 

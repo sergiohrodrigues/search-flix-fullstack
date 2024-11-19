@@ -7,6 +7,7 @@ namespace Filmes.Services.UserStardard
 {
     public interface IUserStardardInterface
     {
-        Task<ResponseModel<UserStandardModel>> CriarUsuario(UserStandardCriacaoDto userStandardDto);
+        Task<ResponseModel<UserStandardModel>> CreateUser(UserStandardCriacaoDto userStandardDto);
+        Task<ResponseModel<UserStandardModel>> LoginUser(UserStandardLoginDto userStandardDto);
     }
 }

@@ -81,6 +81,21 @@ namespace Filmes.Migrations
                         {
                             AtorId = 4,
                             FilmeId = 5
+                        },
+                        new
+                        {
+                            AtorId = 5,
+                            FilmeId = 1
+                        },
+                        new
+                        {
+                            AtorId = 5,
+                            FilmeId = 6
+                        },
+                        new
+                        {
+                            AtorId = 6,
+                            FilmeId = 3
                         });
                 });
 

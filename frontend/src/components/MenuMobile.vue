@@ -40,6 +40,7 @@ import { Menu } from "lucide-vue-next";
             <router-link to="/">Início</router-link>
             <router-link to="/movies">Todos os filmes</router-link>
             <router-link to="/favorites">Favoritos</router-link>
+            <router-link to="/login">Entrar</router-link>
           </ul>
         </SheetClose>
       </SheetDescription>

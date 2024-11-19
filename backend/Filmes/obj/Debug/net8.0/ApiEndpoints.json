@@ -373,8 +373,8 @@
   },
   {
     "ContainingType": "Filmes.Controllers.UserStandardController",
-    "Method": "CriarUsuario",
-    "RelativePath": "api/UserStandard/CriarUsuario",
+    "Method": "CreateUser",
+    "RelativePath": "api/UserStandard/CreateUser",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -382,6 +382,32 @@
       {
         "Name": "userStandardCriacaoDto",
         "Type": "Filmes.Dto.UserStandard.UserStandardCriacaoDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Filmes.Models.ResponseModel\u00601[[Filmes.Models.UserStandardModel, Filmes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Filmes.Controllers.UserStandardController",
+    "Method": "LoginUser",
+    "RelativePath": "api/UserStandard/LoginUser",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userStandardLoginDto",
+        "Type": "Filmes.Dto.UserStandard.UserStandardLoginDto",
         "IsRequired": true
       }
     ],

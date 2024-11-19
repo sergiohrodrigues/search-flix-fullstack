@@ -36,54 +36,6 @@ namespace Filmes.Data
                 .WithMany(f => f.AtorFilmes)
                 .HasForeignKey(af => af.FilmeId);
 
-            modelBuilder.Entity<AtorFilmeModel>().HasData(
-                new AtorFilmeModel
-                    {
-                        AtorId = 1,
-                        FilmeId = 1,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 1,
-                        FilmeId = 2,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 1,
-                        FilmeId = 6,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 2,
-                        FilmeId = 2,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 3,
-                        FilmeId = 2,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 3,
-                        FilmeId = 3,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 3,
-                        FilmeId = 4,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 4,
-                        FilmeId = 2,
-                    },
-                new AtorFilmeModel
-                    {
-                        AtorId = 4,
-                        FilmeId = 5,
-                    }
-            );
-
             // Dados iniciais para a tabela Atores
             modelBuilder.Entity<AtorModel>().HasData(
                 new AtorModel { 
@@ -191,6 +143,70 @@ namespace Filmes.Data
                     Categoria = "Ficção Científica",
                     UrlTrailler = "https://www.youtube.com/embed/wKtcmiifycU",
                     urlImage = "https://i.ibb.co/cX7Gd21/big-poster-filme-homem-de-ferro-2-lo04-tamanho-90x60-cm-iron-man.webp"
+                }
+            );
+
+            // Dados iniciais para a tabela de Atores e Filmes
+            modelBuilder.Entity<AtorFilmeModel>().HasData(
+                new AtorFilmeModel
+                {
+                    AtorId = 1,
+                    FilmeId = 1,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 1,
+                    FilmeId = 2,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 1,
+                    FilmeId = 6,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 2,
+                    FilmeId = 2,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 3,
+                    FilmeId = 2,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 3,
+                    FilmeId = 3,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 3,
+                    FilmeId = 4,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 4,
+                    FilmeId = 2,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 4,
+                    FilmeId = 5,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 5,
+                    FilmeId = 1,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 5,
+                    FilmeId = 6,
+                },
+                new AtorFilmeModel
+                {
+                    AtorId = 6,
+                    FilmeId = 3,
                 }
             );
 

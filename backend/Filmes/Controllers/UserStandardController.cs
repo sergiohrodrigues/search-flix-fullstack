@@ -15,10 +15,17 @@ namespace Filmes.Controllers
             _userStandardInterface = userStandardInterface;
         }
 
-        [HttpPost("CriarUsuario")]
-        public async Task<ActionResult<ResponseModel<UserStandardModel>>> CriarUsuario(UserStandardCriacaoDto userStandardCriacaoDto)
+        [HttpPost("CreateUser")]
+        public async Task<ActionResult<ResponseModel<UserStandardModel>>> CreateUser(UserStandardCriacaoDto userStandardCriacaoDto)
         {
-            var user = await _userStandardInterface.CriarUsuario(userStandardCriacaoDto);
+            var user = await _userStandardInterface.CreateUser(userStandardCriacaoDto);
+            return Ok(user);
+        }
+        
+        [HttpPost("LoginUser")]
+        public async Task<ActionResult<ResponseModel<UserStandardModel>>> LoginUser(UserStandardLoginDto userStandardLoginDto)
+        {
+            var user = await _userStandardInterface.LoginUser(userStandardLoginDto);
             return Ok(user);
         }
     }
