@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref, watch } from "vue";
 import { Button } from "./ui/button";
 import {
   Sheet,
@@ -11,6 +12,14 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Menu } from "lucide-vue-next";
+
+const user = ref(sessionStorage.getItem("user") || null);
+
+watch(sessionStorage, (newValue, oldValue) => {
+  if (sessionStorage.getItem("user")) {
+    user.value = newValue.getItem("user");
+  }
+});
 </script>
 
 <template>
@@ -40,7 +49,8 @@ import { Menu } from "lucide-vue-next";
             <router-link to="/">Início</router-link>
             <router-link to="/movies">Todos os filmes</router-link>
             <router-link to="/favorites">Favoritos</router-link>
-            <router-link to="/login">Entrar</router-link>
+            <router-link to="/login" v-if="!user">Entrar</router-link>
+            <router-link to="" v-else>Minha conta</router-link>
           </ul>
         </SheetClose>
       </SheetDescription>

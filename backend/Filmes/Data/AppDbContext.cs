@@ -215,6 +215,8 @@ namespace Filmes.Data
                 new UserStandardModel
                 {
                     Id = 1,
+                    Name = "Sergio",
+                    Lastname = "Rodrigues",
                     User = "sergior",
                     Password = "1234567",
                     Email = "sergioteste@gmail.com"
@@ -226,6 +228,8 @@ namespace Filmes.Data
                 new UserAdminModel
                 {
                     Id = 2,
+                    Name = "Sergio",
+                    Lastname = "Rodrigues",
                     User = "sergio",
                     Password = "123456",
                     Email = "sergiohrodriguess@gmail.com",

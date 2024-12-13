@@ -291,6 +291,14 @@ namespace Filmes.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -309,6 +317,8 @@ namespace Filmes.Migrations
                             Id = 2,
                             Datanasc = new DateTime(1994, 9, 24, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "sergiohrodriguess@gmail.com",
+                            Lastname = "Rodrigues",
+                            Name = "Sergio",
                             Password = "123456",
                             User = "sergio"
                         });
@@ -323,6 +333,14 @@ namespace Filmes.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Lastname")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -343,6 +361,8 @@ namespace Filmes.Migrations
                         {
                             Id = 1,
                             Email = "sergioteste@gmail.com",
+                            Lastname = "Rodrigues",
+                            Name = "Sergio",
                             Password = "1234567",
                             User = "sergior"
                         });

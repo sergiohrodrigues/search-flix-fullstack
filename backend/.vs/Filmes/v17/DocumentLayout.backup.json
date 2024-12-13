@@ -3,8 +3,8 @@
   "WorkspaceRootPath": "E:\\Nova pasta\\search-flix-fullstack\\backend\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC57962C-FBB0-48EA-8ABD-07A9A91E1633}|Filmes\\Filmes.csproj|e:\\nova pasta\\search-flix-fullstack\\backend\\filmes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC57962C-FBB0-48EA-8ABD-07A9A91E1633}|Filmes\\Filmes.csproj|solutionrelative:filmes\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC57962C-FBB0-48EA-8ABD-07A9A91E1633}|Filmes\\Filmes.csproj|e:\\nova pasta\\search-flix-fullstack\\backend\\filmes\\migrations\\20241213175601_addnameandlastnameinuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC57962C-FBB0-48EA-8ABD-07A9A91E1633}|Filmes\\Filmes.csproj|solutionrelative:filmes\\migrations\\20241213175601_addnameandlastnameinuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +14,31 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Program.cs",
-              "DocumentMoniker": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Program.cs",
-              "RelativeDocumentMoniker": "Filmes\\Program.cs",
-              "ToolTip": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Program.cs",
-              "RelativeToolTip": "Filmes\\Program.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAADAAAAAaAAAAAAAAAA==",
+              "Title": "20241213175601_addNameAndLastnameInUser.cs",
+              "DocumentMoniker": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Migrations\\20241213175601_addNameAndLastnameInUser.cs",
+              "RelativeDocumentMoniker": "Filmes\\Migrations\\20241213175601_addNameAndLastnameInUser.cs",
+              "ToolTip": "E:\\Nova pasta\\search-flix-fullstack\\backend\\Filmes\\Migrations\\20241213175601_addNameAndLastnameInUser.cs",
+              "RelativeToolTip": "Filmes\\Migrations\\20241213175601_addNameAndLastnameInUser.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-19T17:54:47.722Z",
+              "WhenOpened": "2024-12-13T17:56:01.895Z",
               "EditorCaption": ""
             }
           ]

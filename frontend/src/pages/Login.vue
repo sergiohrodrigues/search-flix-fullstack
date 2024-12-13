@@ -1,6 +1,8 @@
 <template>
   <section class="h-100vh flex justify-center items-center">
-    <div class="w-[90%] border-2 my-0 mx-auto p-4 rounded-2xl">
+    <div
+      class="w-[90%] max-w-[370px] border-2 my-0 mx-auto p-4 rounded-2xl md:max-w-[400px]"
+    >
       <ToggleGroup type="single" v-model="optionUser" class="justify-start">
         <ToggleGroupItem
           value="user"
@@ -18,7 +20,37 @@
         </ToggleGroupItem>
       </ToggleGroup>
       <form @submit.prevent="handleFormStandard" class="mt-4">
-        <div class="grid w-full max-w-sm text-left gap-1.5 my-0 mx-auto">
+        <div
+          class="grid w-full max-w-sm text-left gap-1.5 my-0 mx-auto"
+          v-if="showSignOut"
+        >
+          <Label for="name">Name</Label>
+          <Input
+            id="name"
+            type="text"
+            placeholder="name"
+            v-model="fieldName"
+            :class="
+              fieldName.length < 3 ? 'border-red-500' : 'border-green-500'
+            "
+          />
+        </div>
+        <div
+          class="grid w-full max-w-sm text-left gap-1.5 my-0 mx-auto mt-4"
+          v-if="showSignOut"
+        >
+          <Label for="lastname">Lastname</Label>
+          <Input
+            id="lastname"
+            type="text"
+            placeholder="lastname"
+            v-model="fieldLastname"
+            :class="
+              fieldLastname.length < 3 ? 'border-red-500' : 'border-green-500'
+            "
+          />
+        </div>
+        <div class="grid w-full max-w-sm text-left gap-1.5 my-0 mx-auto mt-4">
           <Label for="user">User</Label>
           <Input
             id="user"
@@ -175,12 +207,15 @@ import { h, ref, watch } from "vue";
 import { toast } from "../components/ui/toast";
 import ToastAction from "../components/ui/toast/ToastAction.vue";
 import { useRouter } from "vue-router";
+import http from "../http";
 
 const optionUser = ref("user");
 const IconShowPassword = ref(true);
 const IconShowRepeatPassword = ref(true);
 const showSignOut = ref(false);
 const value = ref<DateValue>();
+const fieldName = ref("");
+const fieldLastname = ref("");
 const fieldUser = ref("");
 const fieldPassword = ref("");
 const fieldRepeatPassword = ref("");
@@ -216,21 +251,54 @@ const signIn = () => {
     return;
   }
 
+  const user = {
+    name: fieldName.value,
+    lastname: fieldLastname.value,
+    user: fieldUser.value,
+    password: fieldPassword.value,
+  };
+
   if (optionUser.value === "user") {
-    fetch("https://localhost:7181/api/UserStandard/LoginUser", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        user: fieldUser.value,
-        password: fieldPassword.value,
-      }),
-    })
+    http
+      .post("/UserStandard/LoginUser", user)
       .then((response) => {
+        if (response.data.dados !== null) {
+          toast({
+            title: "User logged sucessfully!",
+            action: h(
+              ToastAction,
+              {
+                altText: "Close",
+              },
+              {
+                default: () => "Close",
+              }
+            ),
+          });
+          sessionStorage.setItem("user", JSON.stringify(response.data.dados));
+          router.push("/");
+          resetFields();
+        } else {
+          toast({
+            title: "User not found!",
+            variant: "destructive",
+            action: h(
+              ToastAction,
+              {
+                altText: "Close",
+              },
+              {
+                default: () => "Close",
+              }
+            ),
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
         toast({
-          title: "User successfully logged in",
-          variant: "default",
+          title: "Server error",
+          variant: "destructive",
           action: h(
             ToastAction,
             {
@@ -241,13 +309,66 @@ const signIn = () => {
             }
           ),
         });
-        router.push("/");
-        resetFields();
-      })
-      .catch((error) => {});
+      });
   } else if (optionUser.value === "userAdmin") {
-    resetFields();
-    console.log("login admin");
+    fetch("https://localhost:7181/api/UserStandard/LoginUser", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then(async (response) => {
+        const resposta = await response.json();
+
+        if (resposta.dados !== null) {
+          toast({
+            title: "User logged sucessfully!",
+            action: h(
+              ToastAction,
+              {
+                altText: "Close",
+              },
+              {
+                default: () => "Close",
+              }
+            ),
+          });
+          sessionStorage.setItem("user", JSON.stringify(resposta.dados));
+          router.push("/");
+          resetFields();
+        } else {
+          toast({
+            title: "User not found!",
+            variant: "destructive",
+            action: h(
+              ToastAction,
+              {
+                altText: "Close",
+              },
+              {
+                default: () => "Close",
+              }
+            ),
+          });
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        toast({
+          title: "Server error",
+          variant: "destructive",
+          action: h(
+            ToastAction,
+            {
+              altText: "Close",
+            },
+            {
+              default: () => "Close",
+            }
+          ),
+        });
+      });
   }
 };
 

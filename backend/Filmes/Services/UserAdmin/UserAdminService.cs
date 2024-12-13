@@ -19,7 +19,7 @@ public class UserAdminService : IUserAdminInterface
         try
         {
 
-            if (userAdminDto.User == "" || userAdminDto.Password == "" || userAdminDto.Email == "")
+            if (userAdminDto.Name == "" || userAdminDto.Lastname == "" || userAdminDto.User == "" || userAdminDto.Password == "" || userAdminDto.Email == "")
             {
                 resposta.Mensagem = "Por favor envie todos os dados corretamente";
                 return resposta;

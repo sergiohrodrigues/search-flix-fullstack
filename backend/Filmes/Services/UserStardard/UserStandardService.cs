@@ -18,7 +18,7 @@ namespace Filmes.Services.UserStardard
             try
             {
 
-                if (userStandardDto.User == "" || userStandardDto.Password == "" || userStandardDto.Email == "")
+                if (userStandardDto.Name== "" ||  userStandardDto.Lastname== "" ||  userStandardDto.User == "" || userStandardDto.Password == "" || userStandardDto.Email == "")
                 {
                     resposta.Mensagem = "Por favor envie todos os dados corretamente";
                     return resposta;

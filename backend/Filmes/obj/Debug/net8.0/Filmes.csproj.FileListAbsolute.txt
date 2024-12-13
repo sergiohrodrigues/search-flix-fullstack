@@ -426,3 +426,4 @@ E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\refint\Filme
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.pdb
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\Filmes.genruntimeconfig.cache
 E:\Nova pasta\search-flix-fullstack\backend\Filmes\obj\Debug\net8.0\ref\Filmes.dll
+E:\Nova pasta\search-flix-fullstack\backend\Filmes\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
